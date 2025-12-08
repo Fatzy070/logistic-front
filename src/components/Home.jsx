@@ -1,6 +1,3 @@
-// Home.with.Skeleton.jsx
-// Install: npm install react-loading-skeleton
-
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { TbTruck, TbClock, TbCalendar } from "react-icons/tb";
@@ -8,11 +5,28 @@ import { Link } from 'react-router-dom';
 import { TbSearch, TbList, TbPlus } from "react-icons/tb";
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
-
+import api from '../context/api';
 const Home = () => {
     const [user, setUser] = useState({});
     const [message, setMessage] = useState("");
     const [loading, setLoading] = useState(true);
+    const [ shipments , setShipment ] = useState([])
+
+
+    useEffect(() => {
+        const fetchShipments = async () => {
+            try {
+                const res = await api.get(`/shipments/mine`)
+
+                setShipment(res.data.shipments)
+
+            } catch (error) {
+                console.error('Error fetching shipments:' , error.message || error)
+                setMessage(error.response?.data.message || 'Error fetching shipments')
+            }
+        }
+        fetchShipments()
+    },[])
 
     useEffect(() => {
         const fetchUser = async () => {
@@ -26,8 +40,8 @@ const Home = () => {
                 console.log('Error fetching user data:', error);
                 setMessage(error.response?.data.message || 'Error fetching user data');
             } finally {
-                // small delay so skeleton feels smooth in dev
-                setTimeout(() => setLoading(false), 450);
+                
+                setTimeout(() => setLoading(false), 1500);
             }
         };
         fetchUser();
@@ -46,6 +60,17 @@ const Home = () => {
         return date.toLocaleDateString('en-US', options);
     };
 
+  const pendingCount = shipments.filter(s => s.status === 'pending').length;
+const todayCount = shipments.filter(shipment => {
+    const createdDate = new Date(shipment.createdAt);
+    const today = new Date();
+
+    return (
+        createdDate.getDate() === today.getDate() &&
+        createdDate.getMonth() === today.getMonth() &&
+        createdDate.getFullYear() === today.getFullYear()
+    );
+}).length;
     return (
         <>
             <section className="mb-8">
@@ -99,13 +124,13 @@ const Home = () => {
                 </div>
             </section>
 
-            {/* Simple Stats */}
+          
             <div className="grid  grid-cols-2 md:grid-cols-3 gap-4 mb-8">
                 <div className="bg-white rounded-lg border border-gray-200 px-4 py-10">
                     <div className="flex items-center justify-between">
                         <div>
                             <p className="text-sm text-gray-500">Shipments</p>
-                            <p className="text-2xl font-bold text-gray-900">{loading ? <Skeleton width={80} /> : 'demo'}</p>
+                            <p className="text-2xl font-bold text-gray-900">{loading ? <Skeleton width={80} /> : `${shipments.length || 0 }` }</p>
                         </div>
                         <TbTruck className="text-blue-500 text-xl" />
                     </div>
@@ -115,7 +140,7 @@ const Home = () => {
                     <div className="flex items-center justify-between">
                         <div>
                             <p className="text-sm text-gray-500">Today</p>
-                            <p className="text-2xl font-bold text-gray-900">{loading ? <Skeleton width={80} /> : 'demo'}</p>
+                            <p className="text-2xl font-bold text-gray-900">{loading ? <Skeleton width={80} /> : todayCount }</p>
                         </div>
                         <TbClock className="text-green-500 text-xl" />
                     </div>
@@ -125,7 +150,7 @@ const Home = () => {
                     <div className="flex items-center justify-between">
                         <div>
                             <p className="text-sm text-gray-500">Pending</p>
-                            <p className="text-2xl font-bold text-gray-900">{loading ? <Skeleton width={80} /> : 'demo'}</p>
+                            <p className="text-2xl font-bold text-gray-900">{loading ? <Skeleton width={80} /> : pendingCount }</p>
                         </div>
                         <div className="w-6 h-6 rounded-full bg-yellow-100 flex items-center justify-center">
                             <div className="w-3 h-3 rounded-full bg-yellow-500"></div>

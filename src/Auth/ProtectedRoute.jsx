@@ -9,23 +9,23 @@ const ProtectedRoute = () => {
   }
 
   try {
-    // Decode the token (base64)
-    const payload = JSON.parse(atob(token.split('.')[1]));
-    console.log(payload)
 
-    // Check expiration
+    const payload = JSON.parse(atob(token.split('.')[1]));
+
+
+  
     const isExpired = payload.exp * 1000 < Date.now();
 
     if (isExpired) {
-      localStorage.removeItem('token');  // optional: clear old token
+      localStorage.removeItem('token');  
       return <Navigate to="/login" replace />;
     }
 
-    // Token exists and is still valid
+    
     return <Outlet />;
 
   } catch (error) {
-    // If token is corrupted or decoding fails
+
     localStorage.removeItem('token');
     return <Navigate to="/login" replace />;
   }

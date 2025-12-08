@@ -20,7 +20,7 @@ import {
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
-const Shipment = () => {
+const AllShipment = () => {
     const [shipments, setShipments] = useState([]);
     const [loading, setLoading] = useState(true);
     const [searchTerm, setSearchTerm] = useState('');
@@ -31,7 +31,7 @@ const Shipment = () => {
         const fetchShipments = async () => {
             try {
                 setLoading(true);
-                const res = await api.get('/shipments/mine');
+                const res = await api.get('/shipments');
                 setShipments(res.data.shipments || []);
             } catch (error) {
                 console.error('Error fetching shipments:', error);
@@ -215,7 +215,7 @@ const Shipment = () => {
                     </div>
                 </motion.div>
 
-                {/* Shipments List */}
+               
                 <AnimatePresence>
                     {filteredShipments.length === 0 ? (
                         <motion.div
@@ -366,7 +366,7 @@ const Shipment = () => {
                 </button>
                
                  <Link
-                 to={`/track/${shipment.trackingNumber}`}
+                 to='/track'
                  className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-medium text-sm transition-colors">
                     Track Package
                 </Link>
@@ -397,4 +397,4 @@ const Shipment = () => {
     );
 };
 
-export default Shipment;
+export default AllShipment;

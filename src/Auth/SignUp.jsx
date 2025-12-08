@@ -88,7 +88,7 @@ const SignUp = () => {
             
             <div className="absolute top-4 left-4 flex items-center space-x-2">
                 <FaTruck className="text-blue-600 text-2xl" />
-                <span className="text-2xl font-bold text-gray-800">LogiTrack</span>
+                <span className="text-2xl font-bold text-gray-800">LogiXpress</span>
             </div>
 
            
@@ -106,7 +106,7 @@ const SignUp = () => {
                     
                     <div className="flex items-center justify-between">
                         <div>
-                            <h1 className="text-3xl font-bold">Join LogiTrack</h1>
+                            <h1 className="text-3xl font-bold">Join LogiXpress</h1>
                             <p className="text-blue-200 mt-2">Create your logistics management account</p>
                         </div>
                         <div className="text-right">
@@ -123,122 +123,119 @@ const SignUp = () => {
                     </div>
                 </div>
 
-                {/* Form */}
-                <div className="p-8">
-                    <form onSubmit={handleSubmit}>
-                        <AnimatePresence mode="wait">
-                            {/* Step 1: Account Information */}
-                            {step === 1 && (
-                                <motion.div
-                                    key="step1"
-                                    initial={{ opacity: 0, x: -20 }}
-                                    animate={{ opacity: 1, x: 0 }}
-                                    exit={{ opacity: 0, x: 20 }}
-                                    className="space-y-6"
-                                >
-                                    <h2 className="text-xl font-semibold text-gray-800">Account Setup</h2>
-                                    
-                                    {/* Name */}
-                                    <div>
-                                        <label className="block text-gray-700 text-sm font-semibold mb-2">
-                                            <FaUser className="inline mr-2 text-blue-500" />
-                                            Full Name *
-                                        </label>
-                                        <div className="relative">
-                                            <input 
-                                                type="text"
-                                                value={name}
-                                                onChange={(e) => setName(e.target.value)}
-                                                className="w-full px-4 py-3 pl-12 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
-                                                placeholder="John Doe"
-                                                required
+            <div className="p-8"><form onSubmit={handleSubmit}>
+<AnimatePresence mode="wait">
+                            
+    {step === 1 && (
+           <motion.div
+            key="step1"
+             initial={{ opacity: 0, x: -20 }}
+             animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: 20 }}
+            className="space-y-6"
+         >
+            <h2 className="text-xl font-semibold text-gray-800">AcSetup</h2>
+             
+           
+            <div>
+                 <label className="block text-gray-700 text-sm font-semmb-2">
+                       <FaUser className="inline mr-2 text-blue-500" />
+                    Full Name *
+                </label>
+                <div className="relative">
+                    <input 
+                        type="text"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        className="w-full px-4 py-3 pl-12 bborder-gray-300 rounded-lg focus:rfocus:ring-blue-500 focus:border-transptransition-all"
+                         placeholder="John Doe"
+                         required
                                             />
-                                            <FaUser className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" />
-                                        </div>
-                                    </div>
+                    <FaUser className="absolute left-4 top-1/2 tran-translate-y-1/2 text-gray-400" />
+                </div>
+            </div>
 
-                                    {/* Email */}
-                                    <div>
-                                        <label className="block text-gray-700 text-sm font-semibold mb-2">
-                                            <FaEnvelope className="inline mr-2 text-blue-500" />
-                                            Email Address *
-                                        </label>
-                                        <div className="relative">
-                                            <input 
-                                                type="email"
-                                                value={email}
-                                                onChange={(e) => setEmail(e.target.value)}
-                                                className="w-full px-4 py-3 pl-12 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
-                                                placeholder="you@company.com"
-                                                required
+                              
+            <div>
+                <label className="block text-gray-700 text-sm font-semmb-2">
+                    <FaEnvelope className="inline mr-2 text-blue-500" />
+                    Email Address *
+                </label>
+                <div className="relative">
+                    <input 
+                        type="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        className="w-full px-4 py-3 pl-12 border-gray-300 rounded-lg focus:rfocus:ring-blue-500 focus:border-transptransition-all"
+                        placeholder="you@company.com"
+                        required
                                             />
-                                            <FaEnvelope className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" />
-                                        </div>
-                                    </div>
+                    <FaEnvelope className="absolute left-4 totransform -translate-y-3/2  text-gray-400" />
+                </div>
+             </div>
 
                                     {/* Password */}
-                                    <div>
-                                        <label className="block text-gray-700 text-sm font-semibold mb-2">
-                                            <FaLock className="inline mr-2 text-blue-500" />
-                                            Password *
-                                        </label>
-                                        <div className="relative">
-                                            <input 
-                                                type={showPassword ? 'text' : 'password'}
-                                                value={password}
-                                                onChange={(e) => setPassword(e.target.value)}
-                                                className="w-full px-4 py-3 pl-12 pr-12 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
-                                                placeholder="Create a strong password"
-                                                required
-                                                minLength="8"
-                                            />
-                                            <FaLock className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" />
-                                            <button
-                                                type="button"
-                                                onClick={() => setShowPassword(!showPassword)}
-                                                className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-blue-600 transition-colors"
-                                            >
-                                                {showPassword ? <FaEyeSlash /> : <FaEye />}
-                                            </button>
-                                        </div>
-                                        <div className="mt-2 text-xs text-gray-500 space-y-1">
-                                            <div className={`flex items-center ${password.length >= 8 ? 'text-green-600' : ''}`}>
-                                                <FaCheckCircle className="mr-1 text-xs" /> At least 8 characters
-                                            </div>
-                                            <div className={`flex items-center ${/[A-Z]/.test(password) ? 'text-green-600' : ''}`}>
-                                                <FaCheckCircle className="mr-1 text-xs" /> One uppercase letter
-                                            </div>
-                                            <div className={`flex items-center ${/[0-9]/.test(password) ? 'text-green-600' : ''}`}>
-                                                <FaCheckCircle className="mr-1 text-xs" /> One number
-                                            </div>
-                                        </div>
-                                    </div>
+            <div>
+        <label className="block text-gray-700 text-sm font-smb-2">
+            <FaLock className="inline mr-2 text-blue-500" />
+             Password *
+        </label>
+        <div className="relative">
+            <input 
+                type={showPassword ? 'text' : 'password'}
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                 className="w-full px-4 py-3 pl-12 pr-12border-gray-300 rounded-lg focusfocus:ring-blue-500 focus:border-trantransition-all"
+                  placeholder="Create a strong password"
+                  required
+                  minLength="8"
+             />
+             <FaLock className="absolute left-4 top-1/2 tr-translate-y-1/2 text-gray-400" />
+            <button
+                 type="button"
+                 onClick={() => setShowPassword(!showPassword)}
+                 className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-blue-600 transition-colors"
+                    >
+                      {showPassword ? <FaEyeSlash /> : <FaEye />}
+                    </button>
+                     </div>
 
-                                    <div className="flex justify-end pt-2">
-                                        <motion.button
-                                            type="button"
-                                            onClick={nextStep}
-                                            whileHover={{ scale: 1.02 }}
-                                            whileTap={{ scale: 0.98 }}
-                                            className="bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors flex items-center space-x-2"
+                    <div className="mt-2 text-xs text-gray-500 space-y-1">
+                    <div className={`flex items-center ${password.length >= 8 ? 'text-green-600' : ''}`}>
+                    <FaCheckCircle className="mr-1 text-xs" /> At least 8 characters
+                    </div>
+                    <div className={`flex items-center ${/[A-Z]/.test(password) ? 'text-green-600' : ''}`}>
+                    <FaCheckCircle className="mr-1 text-xs" /> One uppercase letter
+                    </div>
+                    <div className={`flex items-center ${/[0-9]/.test(password) ? 'text-green-600' : ''}`}>
+                    <FaCheckCircle className="mr-1 text-xs" /> One number
+                    </div>
+                    </div>
+                    </div>
+            <div className="flex justify-end pt-2">
+                        <motion.button
+                            type="button"
+                            onClick={nextStep}
+                            whileHover={{ scale: 1.02 }}
+                            whileTap={{ scale: 0.98 }}
+                            className="bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors flex items-center space-x-2"
                                         >
-                                            <span>Continue</span>
-                                            <span>→</span>
-                                        </motion.button>
-                                    </div>
-                                </motion.div>
-                            )}
-
-                            {/* Step 2: Terms & Conditions */}
-                            {step === 2 && (
-                                <motion.div
-                                    key="step2"
-                                    initial={{ opacity: 0, x: 20 }}
-                                    animate={{ opacity: 1, x: 0 }}
-                                    exit={{ opacity: 0, x: -20 }}
-                                    className="space-y-6"
-                                >
-                                    <h2 className="text-xl font-semibold text-gray-800">Terms & Conditions</h2>
+                               <span>Continue</span>
+                               <span>→</span>
+                           </motion.button>
+                       </div>
+                        </motion.div>
+                    )}
+             {/* Step 2: Terms & Conditions */}
+                     {step === 2 && (
+                         <motion.div
+                             key="step2"
+                             initial={{ opacity: 0, x: 20 }}
+                             animate={{ opacity: 1, x: 0 }}
+                            exit={{ opacity: 0, x: -20 }}
+                               className="space-y-6"
+                           >
+                                <h2 className="text-xl font-semibold text-gray-800">Terms & Conditions</h2>
                                     
                                     <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 max-h-60 overflow-y-auto">
                                         <h3 className="font-semibold text-gray-800 mb-2">LogiTrack Terms of Service</h3>
@@ -261,7 +258,7 @@ const SignUp = () => {
                                         </p>
                                     </div>
 
-                                    {/* Terms Checkbox */}
+                                    
                                     <div>
                                         <label className="flex items-start space-x-3 cursor-pointer">
                                             <input 
