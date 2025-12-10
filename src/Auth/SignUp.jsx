@@ -51,7 +51,7 @@ const SignUp = () => {
         setIsLoading(true);
         
         try {
-            const res = await axios.post('http://localhost:3000/api/signup', {
+            const res = await axios.post('https://logistic-back.onrender.com/api/signup', {
                 name,
                 email,
                 password
