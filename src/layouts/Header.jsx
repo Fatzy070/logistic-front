@@ -4,7 +4,8 @@
   import { Link } from 'react-router-dom';
   import { TbTruckDelivery, TbPackage } from "react-icons/tb";
   import Search from '../components/Search';
-  import Notification from '../components/Notification';
+  import { IoIosNotificationsOutline } from "react-icons/io";
+
 
   const Header = () => {
     const { nav, logi , navIcon , adminNav } = Info;
@@ -84,14 +85,20 @@
         <div className="flex items-center gap-5">
           
           <Search />
-         <div className="hidden md:block">
-          <Notification />
-         </div>
+         <Link
+        to='/notification'
+         className="hidden md:block">
+            <IoIosNotificationsOutline size={20} />
+         </Link>
 
       
-        <div className="w-[32px] h-[32px] text-[15px] md:w-10 md:h-10  rounded-full bg-blue-600 text-white flex items-center justify-center font-semibold cursor-pointer">
+        <Link
+        to='/profile'
+        >
+          <div className="w-[32px] h-[32px] text-[15px] md:w-10 md:h-10  rounded-full bg-blue-600 text-white flex items-center justify-center font-semibold cursor-pointer">
             {getInitials(user?.name)}
         </div>
+        </Link>
         </div>
       </header>
     );

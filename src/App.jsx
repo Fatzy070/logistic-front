@@ -11,8 +11,10 @@ import AllUser from './components/AllUser'
 import AllShipment from './components/AllShipment'
 import Track from './components/Track'
 import TrackShipment from './components/TrackShipment'
-
+import Profile from './components/Profile'
+import Notification from './components/Notification'
 const GOOGLE_MAPS_API_KEY = import.meta.env.VITE_GOOGLE_MAPS
+
 function App() {
  
 
@@ -31,6 +33,8 @@ function App() {
           <Route path="/user" element={<AllUser />} />
           <Route path='/track' element={<Track googleMapsApiKey={GOOGLE_MAPS_API_KEY} />} />
           <Route path='/track/:trackingNumber' element={<TrackShipment googleMapsApiKey={GOOGLE_MAPS_API_KEY} />} />
+          <Route path='/profile' element={<Profile />} />
+          <Route path='/notification' element={<Notification />} />
           
           </Route>
            </Route>

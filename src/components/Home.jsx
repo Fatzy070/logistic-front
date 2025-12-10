@@ -32,7 +32,7 @@ const Home = () => {
         const fetchUser = async () => {
             const token = localStorage.getItem('token');
             try {
-                const res = await axios.get('http://localhost:3000/api/profile', {
+                const res = await api.get('/profile', {
                     headers: { Authorization: `Bearer ${token}` }
                 });
                 setUser(res.data.user);

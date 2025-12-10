@@ -47,7 +47,7 @@ const Login = () => {
             
             <div className="absolute top-4 left-4 flex items-center space-x-2">
                 <FaTruck className="text-blue-600 text-2xl" />
-                <span className="text-2xl font-bold text-gray-800">LogiTrack</span>
+                <span className="text-2xl font-bold text-gray-800">LogiXpress</span>
             </div>
 
             {/* Main Login Card */}

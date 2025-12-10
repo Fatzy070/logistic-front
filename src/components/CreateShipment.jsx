@@ -86,7 +86,7 @@ const CreateShipment = () => {
     
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 p-4 md:p-6">
+        <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100  md:p-6">
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}

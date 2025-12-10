@@ -107,8 +107,8 @@ const AllShipment = () => {
     }
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 p-4 md:p-8">
-            <div className="max-w-7xl mx-auto">
+        <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 mdp-4 md:p-8">
+            <div className="md:max-w-7xl md:mx-auto">
               
                 <motion.div
                     initial={{ opacity: 0, y: -20 }}
@@ -326,7 +326,7 @@ const AllShipment = () => {
                                             </div>
                 </div>
 
-                                        {/* Addresses */}
+                                       
                 <div className="space-y-3">
                     <div className="flex items-start gap-3">
                                                 <MapPin className="w-5 h-5 text-gray-400 mt-0.5" />
