@@ -41,7 +41,7 @@ const Home = () => {
                 setMessage(error.response?.data.message || 'Error fetching user data');
             } finally {
                 
-                setTimeout(() => setLoading(false), 1500);
+                setTimeout(() => setLoading(false), 500);
             }
         };
         fetchUser();
