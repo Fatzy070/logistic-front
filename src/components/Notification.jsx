@@ -59,8 +59,7 @@ const Notification = () => {
   useEffect(() => {
     fetchNotifications();
 
-    // Connect to Socket.IO
-    const socket = io("http://localhost:3000", {
+    const socket = io("https://logistic-back.onrender.com", {
       path: "/socket.io",
       transports: ["websocket"],
     });
