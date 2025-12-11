@@ -5,6 +5,7 @@
   import { TbTruckDelivery, TbPackage } from "react-icons/tb";
   import Search from '../components/Search';
   import { IoIosNotificationsOutline } from "react-icons/io";
+  import api from '../context/api'
 
 
   const Header = () => {
@@ -17,11 +18,7 @@
       const token = localStorage.getItem('token');
       const fetchUser = async () => {
         try {
-          const res = await axios.get('http://localhost:3000/api/profile', {
-              headers: {
-                Authorization:`Bearer ${token}`
-              }
-          })
+          const res = await api.get('/profile')
           setUser(res.data.user)
         } catch (error) {
           console.log('error fetching user data:', error);

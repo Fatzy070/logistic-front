@@ -97,12 +97,12 @@ const Profile = () => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {/* Left Column - User Info */}
+ 
           <div className="lg:col-span-2 space-y-8">
-            {/* User Card */}
+   
             <div className="bg-white rounded-2xl shadow-lg p-6">
               <div className="flex flex-col md:flex-row items-start md:items-center space-y-6 md:space-y-0 md:space-x-6">
-                {/* Avatar */}
+             
                 <div className="relative">
                   <div className="w-24 h-24 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center">
                     <User className="w-12 h-12 text-white" />
@@ -112,7 +112,7 @@ const Profile = () => {
                   </div>
                 </div>
 
-                {/* User Details */}
+             
                 <div className="flex-1">
                   <div className="flex flex-col md:flex-row md:items-center justify-between mb-4">
                     <div>
