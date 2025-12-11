@@ -271,7 +271,7 @@ const AllShipment = () => {
                                         </div>
                                     </div>
 
-                                    {/* Body */}
+                                   
                 <div className="p-6">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
                         <div className="space-y-3">
@@ -366,7 +366,7 @@ const AllShipment = () => {
                 </button>
                
                  <Link
-                 to='/track'
+                 to={`/track/${shipment.trackingNumber}`}
                  className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-medium text-sm transition-colors">
                     Track Package
                 </Link>

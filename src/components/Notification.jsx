@@ -65,7 +65,7 @@ const Notification = () => {
     });
 
     socket.on("connect", () => {
-      console.log("Connected to server", socket.id);
+      // console.log("Connected to server", socket.id);
       const userId = user?.userId;
       if (userId) {
         socket.emit("joinRoom", { userId });
@@ -73,7 +73,7 @@ const Notification = () => {
     });
 
     socket.on("newNotification", (notification) => {
-      console.log("Notification received:", notification);
+      // console.log("Notification received:", notification);
       setNotifications(prev => [notification, ...prev]);
     });
 
@@ -305,9 +305,9 @@ const Notification = () => {
      
         {notifications.length > 0 && (
           <div className="border-t border-gray-100 bg-gradient-to-r from-gray-50 to-white px-8 py-6">
-            <div className="flex items-center justify-between">
+            <div className="md:flex items-center justify-center md:justify-between">
               <div className="flex items-center space-x-4">
-                <div className="w-10 h-10 bg-gradient-to-r from-gray-900 to-gray-800 rounded-lg flex items-center justify-center">
+                <div className="md:w-10 md:h-10 bg-gradient-to-r from-gray-900 to-gray-800 rounded-lg flex items-center justify-center">
                   <TrendingUp className="w-5 h-5 text-white" />
                 </div>
                 <div>
@@ -317,7 +317,7 @@ const Notification = () => {
                   </p>
                 </div>
               </div>
-              <div className="flex items-center space-x-4">
+              <div className="flex justify-center md:justify-around pt-2 md:pt-0 items-center space-x-4">
                 <div className="text-right">
                   <p className="text-sm text-gray-600">Latest shipment</p>
                   <p className="text-gray-900 font-medium">

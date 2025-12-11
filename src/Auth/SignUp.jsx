@@ -98,7 +98,7 @@ const SignUp = () => {
                 transition={{ duration: 0.5 }}
                 className="bg-white rounded-2xl shadow-2xl overflow-hidden w-full max-w-md"
             >
-                {/* Header */}
+               
                 <div className="relative bg-gradient-to-r from-blue-600 to-blue-800 p-8 text-white">
                     <div className="absolute top-4 right-4 opacity-20">
                         <FaTruck className="text-6xl transform rotate-45" />
@@ -142,12 +142,12 @@ const SignUp = () => {
                        <FaUser className="inline mr-2 text-blue-500" />
                     Full Name *
                 </label>
-                <div className="relative">
+                <div className="relative  ">
                     <input 
                         type="text"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
-                        className="w-full px-4 py-3 pl-12 bborder-gray-300 rounded-lg focus:rfocus:ring-blue-500 focus:border-transptransition-all"
+                        className="w-full px-4 py-3 pl-12 border border-gray-500 rounded-lg focus:rfocus:ring-blue-500 focus:border-transptransition-all"
                          placeholder="John Doe"
                          required
                                             />
@@ -166,7 +166,7 @@ const SignUp = () => {
                         type="email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
-                        className="w-full px-4 py-3 pl-12 border-gray-300 rounded-lg focus:rfocus:ring-blue-500 focus:border-transptransition-all"
+                        className="w-full px-4 py-3 pl-12 border border-gray-500 rounded-lg focus:rfocus:ring-blue-500 focus:border-transptransition-all"
                         placeholder="you@company.com"
                         required
                                             />
@@ -174,7 +174,6 @@ const SignUp = () => {
                 </div>
              </div>
 
-                                    {/* Password */}
             <div>
         <label className="block text-gray-700 text-sm font-smb-2">
             <FaLock className="inline mr-2 text-blue-500" />
@@ -185,7 +184,7 @@ const SignUp = () => {
                 type={showPassword ? 'text' : 'password'}
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                 className="w-full px-4 py-3 pl-12 pr-12border-gray-300 rounded-lg focusfocus:ring-blue-500 focus:border-trantransition-all"
+                 className="w-full px-4 py-3 pl-12 pr-12 border border-gray-500  rounded-lg focus:ring-blue-500 focus:border-trantransition-all"
                   placeholder="Create a strong password"
                   required
                   minLength="8"
@@ -338,11 +337,7 @@ const SignUp = () => {
                 </div>
             </motion.div>
 
-            {/* Security Badge */}
-            <div className="absolute bottom-4 right-4 flex items-center space-x-2 text-sm text-gray-500">
-                <FaLock className="text-green-500" />
-                <span>SSL Secured • Encrypted Data</span>
-            </div>
+
         </div>
     );
 };
